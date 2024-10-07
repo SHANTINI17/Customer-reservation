@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+         table {
+            border-collapse: collapse; 
+            width: 60%;
+            margin: 50px auto; 
+            border: 2px solid black;
+        }
+        th,td{
+            border: 1px solid;
+            padding: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <center>
+        RESTAURANT RESERVATION <br>
+        <input type="text" placeholder="Enter your name" id="name">
+        <input type="text" placeholder="Enter number of guest" id="guest">
+        <input type="time" placeholder="Enter reservation time" id="restime"><br>
+        <button onclick="add()">ADD CUSTOMER</button>
+        <table id="restaurant" style="border: 2px solid;">
+            <tr>
+                <th>Name</th>
+                <th>Guest</th>
+                <th>Reservation time</th>
+            </tr>
+        </table>
+    </center>
+
+</body>
+<script>
+function add(){
+    const a=document.getElementById("name");
+    const b=document.getElementById("guest");
+    const c=document.getElementById("restime");
+
+    var x=a.value.trim();
+    var y=b.value.trim();
+    var z=c.value.trim();
+
+    var newrow=document.createElement("tr");
+
+    var newname=document.createElement("td");
+    newname.textContent=x;
+
+    var newguest=document.createElement("td");
+    newguest.textContent=y;
+
+    var newtime=document.createElement("td");
+    newtime.textContent=z;
+
+    newrow.append(newname);
+    newrow.append(newguest);
+    newrow.append(newtime);
+
+    document.getElementById("restaurant").append(newrow);
+    document.getElementById("name").value="";
+    document.getElementById("guest").value="";
+    document.getElementById("restime").value="";
+
+}
+</script>
+</html>
